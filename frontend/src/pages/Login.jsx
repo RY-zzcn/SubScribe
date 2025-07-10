@@ -147,7 +147,7 @@ const Login = () => {
             <p>当前通过{deployPlatform}一键部署</p>
             <div className="mt-2 flex justify-center space-x-4">
               <a 
-                href="https://github.com/your-username/SubScribe" 
+                href="https://github.com/RY-zzcn/SubScribe" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline dark:text-blue-400"
@@ -155,7 +155,7 @@ const Login = () => {
                 GitHub
               </a>
               <a 
-                href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2FSubScribe" 
+                href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRY-zzcn%2FSubScribe" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline dark:text-blue-400"
@@ -163,7 +163,7 @@ const Login = () => {
                 部署到Vercel
               </a>
               <a 
-                href="https://deploy.workers.cloudflare.com/?url=https://github.com/your-username/SubScribe" 
+                href="https://deploy.workers.cloudflare.com/?url=https://github.com/RY-zzcn/SubScribe" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline dark:text-blue-400"
