@@ -1,0 +1,35 @@
+name = "subscribe"
+compatibility_date = "2023-10-30"
+compatibility_flags = ["nodejs_compat"]
+
+# 主配置
+[site]
+bucket = "./frontend/dist"
+entry-point = "./api"
+
+# 构建配置
+[build]
+command = "npm run build"
+
+# 环境变量配置
+[vars]
+ENVIRONMENT = "production"
+
+# 开发环境配置
+[env.development]
+vars = { ENVIRONMENT = "development" }
+
+# KV命名空间配置
+[[kv_namespaces]]
+binding = "SUBSCRIBE_KV"
+id = "your-kv-namespace-id"  # 需要替换为实际的KV命名空间ID
+
+# 路由配置
+[[routes]]
+pattern = "/api/*"
+script = "api/worker.js"
+
+[[routes]]
+pattern = "*"
+content = "./frontend/dist/index.html"
+status_code = 200 
