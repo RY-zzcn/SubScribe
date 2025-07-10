@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  subscribetracker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: subscribetracker
+    ports:
+      - "5000:5000"  # Firebase Hosting
+      - "5001:5001"  # Firebase Functions
+      - "8080:8080"  # Firebase Firestore
+      - "9099:9099"  # Firebase Auth
+      - "4000:4000"  # Firebase Emulator UI
+    volumes:
+      - ./firebase.json:/app/firebase.json
+      - ./firestore.rules:/app/firestore.rules
+      - ./firestore.indexes.json:/app/firestore.indexes.json
+      - ./.firebaserc:/app/.firebaserc
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped 

@@ -1,0 +1,27 @@
+name = "subscribe-frontend"
+compatibility_date = "2023-10-30"
+compatibility_flags = ["nodejs_compat"]
+
+[site]
+bucket = "./dist"
+entry-point = "."
+
+[build]
+command = "npm run build"
+output_dir = "dist"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.development]
+vars = { ENVIRONMENT = "development" }
+
+# 路由配置
+[[routes]]
+pattern = "/api/*"
+script = "api"
+
+[[routes]]
+pattern = "*"
+content = "./dist/index.html"
+status_code = 200 

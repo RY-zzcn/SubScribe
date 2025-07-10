@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 一键部署到Vercel
+    url: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2FSubScribe
+    about: 点击此链接将SubScribe一键部署到Vercel
+  - name: 一键部署到Cloudflare Pages
+    url: https://deploy.workers.cloudflare.com/?url=https://github.com/your-username/SubScribe
+    about: 点击此链接将SubScribe一键部署到Cloudflare Pages 

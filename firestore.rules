@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 用户只能读写自己的文档
+    match /users/{userId} {
+      allow read, update: if request.auth.uid == userId;
+      allow create: if request.auth != null;
+      
+      // 用户只能读写自己名下的订阅
+      match /subscriptions/{subscriptionId} {
+        allow read, write: if request.auth.uid == userId;
+      }
+    }
+    
+    // 默认规则：拒绝所有其他访问
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 
