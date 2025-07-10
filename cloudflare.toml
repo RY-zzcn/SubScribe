@@ -1,0 +1,22 @@
+# Cloudflare Pages配置文件
+
+# 构建配置
+[build]
+command = "cd frontend && npm install && npm run build"
+publish = "frontend/dist"
+node_bundler = "esbuild"
+
+# 环境变量配置
+[build.environment]
+NODE_VERSION = "18"
+
+# 路由配置
+[[redirects]]
+from = "/api/*"
+to = "/api/index.js"
+status = 200
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200 
