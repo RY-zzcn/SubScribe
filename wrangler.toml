@@ -5,11 +5,11 @@ compatibility_flags = ["nodejs_compat"]
 # 主配置
 [site]
 bucket = "./frontend/dist"
-entry-point = "./api"
 
 # 构建配置
 [build]
-command = "npm run build"
+command = "cd frontend && npm install && npm run build"
+output_dir = "dist"
 
 # 环境变量配置
 [vars]
