@@ -24,7 +24,7 @@ const NotFound = () => {
           
           <div className="flex flex-wrap justify-center gap-3">
             <a 
-              href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2FSubScribe"
+              href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRY-zzcn%2FSubScribe"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-800"
@@ -36,7 +36,7 @@ const NotFound = () => {
             </a>
             
             <a 
-              href="https://deploy.workers.cloudflare.com/?url=https://github.com/your-username/SubScribe"
+              href="https://deploy.workers.cloudflare.com/?url=https://github.com/RY-zzcn/SubScribe"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-md hover:bg-orange-600"
@@ -48,7 +48,7 @@ const NotFound = () => {
             </a>
             
             <a 
-              href="https://github.com/your-username/SubScribe"
+              href="https://github.com/RY-zzcn/SubScribe"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-gray-800 text-white text-sm font-medium rounded-md hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
