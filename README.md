@@ -48,8 +48,8 @@ VITE_FIREBASE_APP_ID=your-app-id
 
 1. 连接您的GitHub账户
 2. 配置项目名称和构建设置
-   - 构建命令: `npm run build`
-   - 构建输出目录: `dist`
+   - 构建命令: `cd frontend && npm install && npm run build`
+   - 构建输出目录: `frontend/dist`
 3. 点击"Save and Deploy"按钮
 
 部署完成后，您需要在Cloudflare Pages仪表板中设置以下环境变量：
@@ -68,15 +68,27 @@ VITE_FIREBASE_APP_ID=your-app-id
 1. 创建KV命名空间：`wrangler kv:namespace create SUBSCRIBE_KV`
 2. 更新`wrangler.toml`中的KV命名空间ID
 
-> **注意**：如果使用"一键部署到Cloudflare Workers"按钮时遇到错误提示"在提供的目录中找不到wrangler.json、wrangler.jsnc或wrangler.toml文件"，请按照以下步骤手动部署：
+> **注意**：如果使用"一键部署到Cloudflare Workers"按钮时遇到错误提示"在提供的目录中找不到wrangler.json、wrangler.jsnc或wrangler.toml文件"或构建失败，请按照以下步骤手动部署：
 >
+> **方法1：使用Cloudflare Pages界面部署**
+> 1. 转到 [Cloudflare Pages](https://pages.cloudflare.com/)
+> 2. 点击"创建项目"并连接您的GitHub账户
+> 3. 选择SubScribe仓库
+> 4. 配置构建设置：
+>    - 构建命令: `cd frontend && npm install && npm run build`
+>    - 构建输出目录: `frontend/dist`
+> 5. 点击"保存并部署"
+>
+> **方法2：手动克隆并部署**
 > 1. 克隆仓库: `git clone https://github.com/RY-zzcn/SubScribe.git`
 > 2. 进入目录: `cd SubScribe`
-> 3. 安装依赖: `npm run install:all`
+> 3. 安装依赖: `cd frontend && npm install`
 > 4. 构建前端: `npm run build`
-> 5. 部署到Cloudflare: `npm run deploy:cloudflare`
+> 5. 部署到Cloudflare Pages: `npx wrangler pages deploy frontend/dist`
 >
-> 或者使用Cloudflare Pages部署前端，然后单独部署Workers API。
+> **方法3：分别部署前端和API**
+> 1. 部署前端到Cloudflare Pages（如上所述）
+> 2. 部署API到Cloudflare Workers: `cd api && npm install && npx wrangler deploy`
 
 ## 部署指南
 
@@ -157,14 +169,15 @@ wrangler login
 
 3. 部署前端到Cloudflare Pages:
 ```bash
-cd frontend
-wrangler pages publish dist
+cd frontend && npm install && npm run build
+npx wrangler pages deploy frontend/dist
 ```
 
 4. 部署API到Cloudflare Workers:
 ```bash
 cd api
-wrangler publish
+npm install
+npx wrangler deploy
 ```
 
 5. 配置KV命名空间:
@@ -174,7 +187,7 @@ wrangler kv:namespace create SUBSCRIBE_KV
 
 6. 使用项目根目录的wrangler.toml进行完整部署:
 ```bash
-wrangler deploy
+npx wrangler deploy
 ```
 
 ## 环境变量配置
